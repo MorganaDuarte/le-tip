@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import { coins } from '../scripts/coins';
-import Quotation from '../clients/Quotation';
+import Quotation from '../clients/QuotationClient';
 
 const selectedValue = ref(coins[0]);
 const accountValue = ref(0);
@@ -18,7 +18,7 @@ const valueInBRL = computed(() => perPersonValue.value * exchangeRate.value);
 
 async function updateExchangeRate() {
   if (!selectedValue.value) return;
-  
+
   try {
     isLoading.value = true;
     const quotation = new Quotation(selectedValue.value.value, 'brl');
@@ -37,6 +37,7 @@ onMounted(async () => {
 });
 
 watch(selectedValue, async () => {
+  messageError.value = '';
   await updateExchangeRate();
 });
 </script>
