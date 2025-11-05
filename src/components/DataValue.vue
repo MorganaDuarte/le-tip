@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 import { coins } from '../scripts/coins';
 
 const selectedValue = ref(coins[0]);
 const accountValue = ref(0);
 const tip = ref(10);
 const people = ref(2);
+
+const tipValue = computed(() => accountValue.value * tip.value / 100);
+const totalValue = computed(() => accountValue.value + tipValue.value);
+const perPersonValue = computed(() => totalValue.value / people.value);
 </script>
 
 <template>
@@ -36,15 +40,15 @@ const people = ref(2);
     </div>
     <div>
       <span>Gorjeta:</span>
-      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+      <p>{{ selectedValue?.signal }} {{ tipValue }}</p>
     </div>
     <div>
       <span>Total:</span>
-      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+      <p>{{ selectedValue?.signal }} {{ totalValue }}</p>
     </div>
     <div>
       <span>Por Pessoa:</span>
-      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+      <p>{{ selectedValue?.signal }} {{ perPersonValue }}</p>
     </div>
   </div>
 
