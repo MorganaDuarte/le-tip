@@ -27,6 +27,27 @@ const people = ref(2);
     </div>
   </div>
 
+  <hr/>
+
+  <div>
+    <div>
+      <span>Conta:</span>
+      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+    </div>
+    <div>
+      <span>Gorjeta:</span>
+      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+    </div>
+    <div>
+      <span>Total:</span>
+      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+    </div>
+    <div>
+      <span>Por Pessoa:</span>
+      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+    </div>
+  </div>
+
 </template>
 
 <style scoped></style>
