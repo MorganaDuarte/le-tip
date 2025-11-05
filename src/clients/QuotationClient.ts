@@ -1,4 +1,4 @@
-export default class Quotation {
+export default class QuotationClient {
   currentCurrency: string;
   quotation: string;
 
