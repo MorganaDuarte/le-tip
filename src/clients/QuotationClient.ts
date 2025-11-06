@@ -18,6 +18,7 @@ export default class QuotationClient {
     if (!response.ok) throw new Error(`Erro ao buscar cotacao na API da Awesome: ${response.statusText}`);
     const result = await response.json();
 
-    return result.ask;
+    const key = `${this.currentCurrency}${this.quotation}`;
+    return result[key].ask;
   }
 }
