@@ -43,11 +43,18 @@ watch(selectedValue, async () => {
 </script>
 
 <template>
+  <div class="text-center mb-12">
+    <h1>Le/Tip</h1>
+    <p>Calculadora de gorjetas inteligente</p>
+  </div>
   <div>
-    <div class="d-flex align-items-center gap-2" v-for="coin in coins" :key="coin.value">
-      <input type="radio" v-model="selectedValue" :value="coin" :id="coin.value" />
-      <label :for="coin.value">{{ coin.label }}</label>
+     <div class="currency-selector">
+      <button v-for="coin in coins" :key="coin.value"
+        :class="['currency-selector__button', { 'currency-selector__button--active': selectedValue?.value === coin.value }]" @click="selectedValue = coin">
+      {{ coin.label }}
+      </button>
     </div>
+    
     Valor {{ selectedValue?.signal }} <input type="number" v-model="accountValue" min="0" />
 
     <div>
@@ -93,4 +100,29 @@ watch(selectedValue, async () => {
 
 </template>
 
-<style scoped></style>
+<style scoped>
+.currency-selector {
+ display: flex;
+ background-color: white;
+ border-radius: 50px;
+ padding: 4px;
+ width: fit-content;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+ border: 1px solid #f0f0f0;
+}
+.currency-selector__button {
+ border: none;
+ background: none;
+ padding: 10px 25px;
+ border-radius: 50px;
+ font-size: 16px;
+ font-weight: 500;
+ color: #8F9BB3;
+ cursor: pointer;
+ transition: all 0.3s ease;
+}
+.currency-selector__button--active {
+ background-color: #96CE00;
+ color: white;
+}
+</style>
