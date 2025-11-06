@@ -1,3 +1,10 @@
+.main-content {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
 .currency-symbol {
  font-size: 24px;
  color: #8F9BB3;
