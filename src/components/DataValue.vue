@@ -12,12 +12,9 @@ const isLoading = ref(false);
 const messageError = ref('');
 
 const tipValue = computed(() => accountValue.value * tip.value / 100);
-const totalValue = computed(() => accountValue.value + tipValue.value);
+const totalValue = computed(() => !accountValue.value ? 0 : accountValue.value + tipValue.value);
 const perPersonValue = computed(() => totalValue.value / people.value);
-const valueInBRL = computed(() => {
-  if (perPersonValue.value === 0) return 0;
-  return perPersonValue.value * exchangeRate.value;
-});
+const valueInBRL = computed(() => perPersonValue.value * exchangeRate.value);
 
 async function updateExchangeRate() {
   if (!selectedValue.value) return;
