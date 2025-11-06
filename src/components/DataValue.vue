@@ -55,7 +55,13 @@ watch(selectedValue, async () => {
       </button>
     </div>
     
-    Valor {{ selectedValue?.signal }} <input type="number" v-model="accountValue" min="0" />
+    <div class="input-container">
+      <h3 class="input-container__label">Valor</h3>
+      <div class="input-container__field">
+        <span class="currency-symbol">{{ selectedValue?.signal }}</span>
+        <input type="number" v-model="accountValue" min="0" class="input-container__value" placeholder="0" />
+      </div>
+    </div>
 
     <div>
       <label for="tipRange">Gorjeta: {{ tip }}%</label>
@@ -124,5 +130,50 @@ watch(selectedValue, async () => {
 .currency-selector__button--active {
  background-color: #96CE00;
  color: white;
+}
+
+.input-container {
+ background-color: #f9f9f9;
+ border-radius: 20px;
+ padding: 20px;
+ margin: 20px 0;
+}
+
+.input-container__label {
+ font-size: 18px;
+ font-weight: 500;
+ margin-bottom: 15px;
+ color: #333;
+}
+
+.input-container__field {
+ display: flex;
+ align-items: center;
+ background-color: #f5f5f5;
+ border-radius: 15px;
+ padding: 10px 15px;
+ border: 1px solid #eee;
+}
+
+.currency-symbol {
+ font-size: 24px;
+ color: #8F9BB3;
+ margin-right: 10px;
+ font-weight: 500;
+}
+
+.input-container__value {
+ border: none;
+ background: transparent;
+ font-size: 20px;
+ width: 100%;
+ outline: none;
+ color: #333;
+}
+
+.input-container__value::-webkit-inner-spin-button,
+.input-container__value::-webkit-outer-spin-button {
+ -webkit-appearance: none;
+ margin: 0;
 }
 </style>
