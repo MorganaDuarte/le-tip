@@ -93,27 +93,43 @@ watch(selectedValue, async () => {
 
   <hr/>
 
-  <div>
+  <div class="input-container">
     <div>
-      <span>Conta:</span>
-      <p>{{ selectedValue?.signal }} {{ accountValue }}</p>
+      <span class="input-container__label">Conta:</span>
+      <div class="results-section">
+        <span class="currency-symbol">{{ selectedValue?.signal }}</span>
+        <span class="default-value">{{ accountValue }}</span>
+      </div>
+
     </div>
     <div>
-      <span>Gorjeta:</span>
-      <p>{{ selectedValue?.signal }} {{ tipValue.toFixed(2) }}</p>
+      <span class="input-container__label">Gorjeta:</span>
+      <div class="results-section">
+        <span class="currency-symbol">{{ selectedValue?.signal }}</span>
+        <span class="default-value">{{ tipValue.toFixed(2) }}</span>
+      </div>
     </div>
     <div>
-      <span>Total:</span>
-      <p>{{ selectedValue?.signal }} {{ totalValue.toFixed(2) }}</p>
+      <span class="input-container__label">Total:</span>
+      <div class="results-section">
+        <span class="currency-symbol">{{ selectedValue?.signal }}</span>
+        <span class="default-value">{{ totalValue.toFixed(2) }}</span>
+      </div>
     </div>
     <div>
-      <span>Por Pessoa:</span>
-      <p>{{ selectedValue?.signal }} {{ perPersonValue.toFixed(2) }}</p>
+      <span class="input-container__label">por Pessoa:</span>
+      <div class="results-section">
+        <span class="currency-symbol">{{ selectedValue?.signal }}</span>
+        <span class="default-value">{{ perPersonValue.toFixed(2) }}</span>
+      </div>
     </div>
     <div>
-      <span>em R$:</span>
+      <span class="input-container__label">em R$:</span>
       <p v-if="isLoading">Carregando...</p>
-      <p v-else>R$ {{ valueInBRL.toFixed(2) }}</p>
+      <div v-else class="results-section">
+        <span class="currency-symbol">R$</span>
+        <span class="default-value">{{ valueInBRL.toFixed(2) }}</span>
+      </div>
     </div>
     <div v-if="messageError">
       <span>Erro: </span>
