@@ -63,9 +63,23 @@ watch(selectedValue, async () => {
       </div>
     </div>
 
-    <div>
+    <!-- <div>
       <label for="tipRange">Gorjeta: {{ tip }}%</label>
       <input type="range" id="tipRange" min="10" max="20" v-model="tip" />
+    </div> -->
+
+    <div class="input-container">
+      <div class="tip-slider__header">
+        <h3 class="tip-slider__label">Gorjeta</h3>
+        <span class="tip-slider__value">{{ tip }}%</span>
+      </div>
+
+      <input type="range" min="10" max="20" v-model="tip" class="tip-slider__input" />
+
+    <div class="tip-slider__limits">
+      <span>10</span>
+      <span>20</span>
+    </div>
     </div>
 
     <div>
@@ -137,6 +151,8 @@ watch(selectedValue, async () => {
  border-radius: 20px;
  padding: 20px;
  margin: 20px 0;
+ width: 100%;
+ max-width: 400px;
 }
 
 .input-container__label {
@@ -175,5 +191,65 @@ watch(selectedValue, async () => {
 .input-container__value::-webkit-outer-spin-button {
  -webkit-appearance: none;
  margin: 0;
+}
+
+.tip-slider {
+  width: 100%;
+  max-width: 400px;
+}
+
+.tip-slider__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.tip-slider__label {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tip-slider__value {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.tip-slider__input {
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+  appearance: none;
+  background: #ecf5f0;
+  outline: none;
+  margin: 0.5rem 0;
+}
+
+.tip-slider__input::-webkit-slider-runnable-track {
+  height: 8px;
+  border-radius: 10px;
+  background: linear-gradient(to right, #5fcf94 calc((var(--value) - 10) * 10%), #ecf5f0 0%);
+}
+
+.tip-slider__input::-webkit-slider-thumb {
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  border: 3px solid #5fcf94;
+  margin-top: -7px;
+  cursor: pointer;
+}
+
+.tip-slider__limits {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  color: #6b6b6b;
 }
 </style>
