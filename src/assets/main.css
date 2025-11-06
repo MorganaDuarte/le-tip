@@ -1,3 +1,10 @@
+.currency-symbol {
+ font-size: 24px;
+ color: #8F9BB3;
+ margin-right: 10px;
+ font-weight: 500;
+}
+
 .currency-selector {
  display: flex;
  background-color: white;
@@ -18,12 +25,13 @@
  cursor: pointer;
  transition: all 0.3s ease;
 }
+
 .currency-selector__button--active {
  background-color: #96CE00;
  color: white;
 }
 
-.input-container {
+.container {
  background-color: #f9f9f9;
  border-radius: 20px;
  padding: 20px;
@@ -32,14 +40,14 @@
  max-width: 400px;
 }
 
-.input-container__label {
+.container__label {
  font-size: 18px;
  font-weight: 500;
  margin-bottom: 15px;
  color: #333;
 }
 
-.input-container__field {
+.container__field {
  display: flex;
  align-items: center;
  background-color: #f5f5f5;
@@ -48,14 +56,7 @@
  border: 1px solid #eee;
 }
 
-.currency-symbol {
- font-size: 24px;
- color: #8F9BB3;
- margin-right: 10px;
- font-weight: 500;
-}
-
-.input-container__value {
+.container__input {
  border: none;
  background: transparent;
  font-size: 20px;
@@ -64,8 +65,8 @@
  color: #333;
 }
 
-.input-container__value::-webkit-inner-spin-button,
-.input-container__value::-webkit-outer-spin-button {
+.container__input::-webkit-inner-spin-button,
+.container__input::-webkit-outer-spin-button {
  -webkit-appearance: none;
  margin: 0;
 }
@@ -128,4 +129,19 @@
   justify-content: space-between;
   font-size: 0.9rem;
   color: #6b6b6b;
+}
+
+.results-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.default-value {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #333;
+  margin: 0;
 }

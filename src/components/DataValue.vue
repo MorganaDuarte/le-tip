@@ -54,15 +54,15 @@ watch(selectedValue, async () => {
       </button>
     </div>
     
-    <div class="input-container">
-      <h3 class="input-container__label">Valor</h3>
-      <div class="input-container__field">
+    <div class="container">
+      <h3 class="container__label">Valor</h3>
+      <div class="container__field">
         <span class="currency-symbol">{{ selectedValue?.signal }}</span>
-        <input type="number" v-model="accountValue" min="0" class="input-container__value" placeholder="0" />
+        <input type="number" v-model="accountValue" min="0" class="container__input" placeholder="0" />
       </div>
     </div>
 
-    <div class="input-container">
+    <div class="container">
       <div class="tip-slider__header">
         <h3 class="tip-slider__label">Gorjeta</h3>
         <span class="tip-slider__value">{{ tip }}%</span>
@@ -93,9 +93,9 @@ watch(selectedValue, async () => {
 
   <hr/>
 
-  <div class="input-container">
+  <div class="container">
     <div>
-      <span class="input-container__label">Conta:</span>
+      <span class="container__label">Conta:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ selectedValue?.signal }}</span>
         <span class="default-value">{{ accountValue }}</span>
@@ -103,28 +103,28 @@ watch(selectedValue, async () => {
 
     </div>
     <div>
-      <span class="input-container__label">Gorjeta:</span>
+      <span class="container__label">Gorjeta:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ selectedValue?.signal }}</span>
         <span class="default-value">{{ tipValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
-      <span class="input-container__label">Total:</span>
+      <span class="container__label">Total:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ selectedValue?.signal }}</span>
         <span class="default-value">{{ totalValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
-      <span class="input-container__label">por Pessoa:</span>
+      <span class="container__label">por Pessoa:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ selectedValue?.signal }}</span>
         <span class="default-value">{{ perPersonValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
-      <span class="input-container__label">em R$:</span>
+      <span class="container__label">em R$:</span>
       <p v-if="isLoading">Carregando...</p>
       <div v-else class="results-section">
         <span class="currency-symbol">R$</span>
