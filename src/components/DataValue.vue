@@ -47,6 +47,7 @@ watch(selectedValue, async () => {
     <h1>Le/Tip</h1>
     <p>Calculadora de gorjetas inteligente</p>
   </div>
+
   <div>
      <div class="currency-selector">
       <button v-for="coin in coins" :key="coin.value"
@@ -71,13 +72,13 @@ watch(selectedValue, async () => {
 
       <input type="range" min="10" max="20" v-model="tip" class="tip-slider__input" />
 
-    <div class="tip-slider__limits">
-      <span>10</span>
-      <span>20</span>
-    </div>
-    </div>
+      <div class="tip-slider__limits">
+        <span>10</span>
+        <span>20</span>
+      </div>
 
-    <div class="input-container">
+      <hr />
+
       <div class="tip-slider__header">
         <h3 class="tip-slider__label">Pessoas</h3>
         <span class="tip-slider__value">{{ people }}</span>
@@ -85,10 +86,10 @@ watch(selectedValue, async () => {
 
       <input type="range" min="2" max="16" v-model="people" class="tip-slider__input" />
 
-    <div class="tip-slider__limits">
-      <span>2</span>
-      <span>16</span>
-    </div>
+      <div class="tip-slider__limits">
+        <span>2</span>
+        <span>16</span>
+      </div>
     </div>
   </div>
 
