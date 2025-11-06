@@ -2,6 +2,7 @@
 import { ref, computed, onMounted, watch } from 'vue';
 import { coins } from '../scripts/coins';
 import Quotation from '../clients/QuotationClient';
+import HeaderSection from './HeaderSection.vue';
 
 const selectedValue = ref(coins[0]);
 const accountValue = ref(0);
@@ -43,10 +44,7 @@ watch(selectedValue, async () => {
 </script>
 
 <template>
-  <div class="text-center mb-12">
-    <h1>Le/Tip</h1>
-    <p>Calculadora de gorjetas inteligente</p>
-  </div>
+  <HeaderSection />
 
   <div>
      <div class="currency-selector">
