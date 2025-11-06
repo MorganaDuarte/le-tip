@@ -24,7 +24,7 @@ async function updateExchangeRate() {
 
   try {
     isLoading.value = true;
-    const quotation = new Quotation(selectedValue.value.value, 'brl');
+    const quotation = new Quotation(selectedValue.value.value, 'BRL');
 
     exchangeRate.value = await quotation.getQuotationFromApi();
   } catch (error) {

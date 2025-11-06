@@ -1,11 +1,11 @@
 export const coins = [
   {
-    value: 'eur',
+    value: 'EUR',
     label: 'EUR',
     signal: '€'
   },
   {
-    value: 'usd',
+    value: 'USD',
     label: 'USD',
     signal: '$'
   }
