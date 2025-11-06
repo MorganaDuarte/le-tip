@@ -63,11 +63,6 @@ watch(selectedValue, async () => {
       </div>
     </div>
 
-    <!-- <div>
-      <label for="tipRange">Gorjeta: {{ tip }}%</label>
-      <input type="range" id="tipRange" min="10" max="20" v-model="tip" />
-    </div> -->
-
     <div class="input-container">
       <div class="tip-slider__header">
         <h3 class="tip-slider__label">Gorjeta</h3>
@@ -82,9 +77,18 @@ watch(selectedValue, async () => {
     </div>
     </div>
 
-    <div>
-      <label for="tipRange">Pessoas: {{ people }}</label>
-      <input type="range" id="peopleRange" min="2" max="16" v-model="people" />
+    <div class="input-container">
+      <div class="tip-slider__header">
+        <h3 class="tip-slider__label">Pessoas</h3>
+        <span class="tip-slider__value">{{ people }}</span>
+      </div>
+
+      <input type="range" min="2" max="16" v-model="people" class="tip-slider__input" />
+
+    <div class="tip-slider__limits">
+      <span>2</span>
+      <span>16</span>
+    </div>
     </div>
   </div>
 
