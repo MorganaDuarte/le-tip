@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { coins } from '../scripts/coins';
-import HeaderSection from './HeaderSection.vue';
+import TipHeader from './TipHeader.vue';
 import TipSummary from './TipSummary.vue';
 import TipCalculatorForm from './TipCalculatorForm.vue';
 
@@ -13,7 +13,7 @@ const people = ref(2);
 </script>
 
 <template>
-  <HeaderSection />
+  <TipHeader />
 
   <main class="main-content">
     <TipCalculatorForm @update:selectedCoin="selectedCoin = $event" @update:accountValue="accountValue = $event" @update:tip="tip = $event" @update:people="people = $event" />

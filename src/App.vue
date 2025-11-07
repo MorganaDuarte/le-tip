@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import DataValue from './components/DataValue.vue'
+import TipCalculator from './components/TipCalculator.vue'
 </script>
 
 <template>
-  <DataValue />
+  <TipCalculator />
 </template>
 
 <style scoped></style>
