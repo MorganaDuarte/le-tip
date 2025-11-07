@@ -19,6 +19,6 @@ export const coins: [Coin, Coin] = [
 
 export const BRL = {
   value: 'BRL',
-  label: 'BRL',
+  label: 'R$',
   signal: 'R$'
 }

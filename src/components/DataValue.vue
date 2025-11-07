@@ -62,5 +62,4 @@ const people = ref(2);
 
     <TipSummary :selectedCoin="selectedValue" :accountValue="accountValue" :tip="tip" :people="people" />
   </main>
-
 </template>

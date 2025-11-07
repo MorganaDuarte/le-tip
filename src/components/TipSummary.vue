@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import Quotation from '../clients/QuotationClient';
+import { BRL } from '../scripts/coins';
 
 const props = defineProps({
   selectedCoin: {
@@ -35,7 +36,7 @@ async function updateExchangeRate() {
 
   try {
     isLoading.value = true;
-    const quotation = new Quotation(props.selectedCoin.value, 'BRL');
+    const quotation = new Quotation(props.selectedCoin.value, BRL.value);
 
     exchangeRate.value = await quotation.getQuotationFromApi();
   } catch (error) {
@@ -87,10 +88,10 @@ watch(() => props.selectedCoin, async () => {
       </div>
     </div>
     <div>
-      <span class="container__label">em R$:</span>
+      <span class="container__label">em {{BRL.label }}:</span>
       <p v-if="isLoading">Carregando...</p>
       <div v-else class="results-section">
-        <span class="currency-symbol">R$</span>
+        <span class="currency-symbol">{{ BRL.signal }}</span>
         <span class="default-value">{{ valueInBRL.toFixed(2) }}</span>
       </div>
     </div>
