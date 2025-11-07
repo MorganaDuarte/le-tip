@@ -2,8 +2,13 @@
 import { ref } from 'vue';
 import { coins } from '../scripts/coins';
 
-const emit = defineEmits(['update:selectedCoin', 'update:accountValue', 'update:tip', 'update:people']);
-
+const emit = defineEmits(['update:selectedCoin', 'update:accountValue', 'update:tip', 'update:people', 'update:showSummary']);
+defineProps({
+  isMobile: {
+    type: Boolean,
+    required: true
+  }
+});
 const selectedCoin = ref(coins[0]);
 const accountValue = ref(0);
 const tip = ref(10);
@@ -11,7 +16,7 @@ const people = ref(2);
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <div class="currency-selector">
       <button v-for="coin in coins" :key="coin.value"
         :class="['currency-selector__button', { 'currency-selector__button--active': selectedCoin?.value === coin.value }]" @click="emit('update:selectedCoin', coin)">
@@ -53,6 +58,9 @@ const people = ref(2);
         <span>2</span>
         <span>16</span>
       </div>
+    </div>
+    <div class="button-container" v-if="isMobile">
+      <button type="button" class="button" @click="emit('update:showSummary', true)">></button>
     </div>
   </div>
 </template>

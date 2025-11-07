@@ -3,6 +3,7 @@ import { ref, computed, onMounted, watch } from 'vue';
 import Quotation from '../clients/QuotationClient';
 import { BRL } from '../scripts/coins';
 
+const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
   selectedCoin: {
     type: Object,
@@ -20,6 +21,10 @@ const props = defineProps({
     type: Number,
     required: true
   },
+  isMobile: {
+    type: Boolean,
+    required: true
+  }
 });
 
 const exchangeRate = ref(1);
@@ -98,6 +103,9 @@ watch(() => props.selectedCoin, async () => {
     <div v-if="messageError">
       <span>Erro: </span>
       <span>{{ messageError }}</span>
+    </div>
+      <div class="button-container" v-if="isMobile">
+      <button type="button" class="button" @click="emit('update:showSummary', false)">&lt;</button>
     </div>
   </div>
 </template>

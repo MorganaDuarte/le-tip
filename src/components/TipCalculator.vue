@@ -10,13 +10,38 @@ const accountValue = ref(0);
 const tip = ref(10);
 const people = ref(2);
 
+const isMobile = ref(window.innerWidth <= 768);
+const showForm = ref(true);
+const showSummary = ref(true);
+if (isMobile.value) {
+  showSummary.value = false;
+}
+
+const updateViewWhenMobile = (value: boolean) => {
+  showSummary.value = value;
+  showForm.value = !value;
+};
 </script>
 
 <template>
   <TipHeader />
 
   <main class="main-content">
-    <TipCalculatorForm @update:selectedCoin="selectedCoin = $event" @update:accountValue="accountValue = $event" @update:tip="tip = $event" @update:people="people = $event" />
-    <TipSummary :selectedCoin="selectedCoin" :accountValue="accountValue" :tip="tip" :people="people" />
+    <TipCalculatorForm 
+      v-show="showForm"
+      :isMobile="isMobile"
+      @update:selectedCoin="selectedCoin = $event" 
+      @update:accountValue="accountValue = $event" 
+      @update:tip="tip = $event" 
+      @update:people="people = $event"
+      @update:showSummary="updateViewWhenMobile($event)" />
+    <TipSummary 
+      v-show="showSummary"
+      :isMobile="isMobile"
+      :selectedCoin="selectedCoin" 
+      :accountValue="accountValue" 
+      :tip="tip" 
+      :people="people" 
+      @update:showSummary="updateViewWhenMobile($event)"/>
   </main>
 </template>

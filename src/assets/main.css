@@ -21,6 +21,7 @@
  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
  border: 1px solid #f0f0f0;
 }
+
 .currency-selector__button {
  border: none;
  background: none;
@@ -151,4 +152,26 @@
   font-weight: 400;
   color: #333;
   margin: 0;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #96CE00;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
