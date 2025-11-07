@@ -1,4 +1,10 @@
-export const coins = [
+type Coin = {
+  value: string;
+  label: string;
+  signal: string;
+};
+
+export const coins: [Coin, Coin] = [
   {
     value: 'EUR',
     label: 'EUR',
@@ -9,4 +15,10 @@ export const coins = [
     label: 'USD',
     signal: '$'
   }
-];
+]
+
+export const BRL = {
+  value: 'BRL',
+  label: 'BRL',
+  signal: 'R$'
+}
