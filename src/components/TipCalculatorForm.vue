@@ -28,7 +28,7 @@ const form = defineModel('form', {
       <h3 class="container__label">Valor</h3>
       <div class="container__field">
         <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <input type="number" v-model.number="form.accountValue" min="0" class="container__input" placeholder="0" />
+        <input type="number" v-model="form.accountValue" min="0" class="container__input" placeholder="0" />
       </div>
     </div>
 
@@ -38,7 +38,7 @@ const form = defineModel('form', {
         <span class="tip-slider__value">{{ form.tip }}%</span>
       </div>
 
-      <input type="range" min="10" max="20" v-model.number="form.tip" class="tip-slider__input" />
+      <input type="range" min="10" max="20" v-model="form.tip" class="tip-slider__input" />
 
       <div class="tip-slider__limits">
         <span>10</span>
@@ -52,7 +52,7 @@ const form = defineModel('form', {
         <span class="tip-slider__value">{{ form.people }}</span>
       </div>
 
-      <input type="range" min="2" max="16" v-model.number="form.people" class="tip-slider__input" />
+      <input type="range" min="2" max="16" v-model="form.people" class="tip-slider__input" />
 
       <div class="tip-slider__limits">
         <span>2</span>

@@ -9,6 +9,14 @@ export default class Calculator {
     this.tip = tip
     this.people = people
     this.exchangeRate = exchangeRate
+
+    this.validateAccountValue();
+  }
+
+  validateAccountValue(): void {
+    if (!this.accountValue) {
+      this.accountValue = 0;
+    }
   }
   
   calculateTipValue(): number {
