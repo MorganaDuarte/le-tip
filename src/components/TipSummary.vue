@@ -5,20 +5,8 @@ import { BRL } from '../scripts/coins';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
-  selectedCoin: {
+  form: {
     type: Object,
-    required: true
-  },
-  accountValue: {
-    type: Number,
-    required: true
-  },
-  tip: {
-    type: Number,
-    required: true
-  },
-  people: {
-    type: Number,
     required: true
   },
   isMobile: {
@@ -31,17 +19,17 @@ const exchangeRate = ref(1);
 const isLoading = ref(false);
 const messageError = ref('');
 
-const tipValue = computed(() => props.accountValue * props.tip / 100);
-const totalValue = computed(() => !props.accountValue ? 0 : props.accountValue + tipValue.value);
-const perPersonValue = computed(() => totalValue.value / props.people);
+const tipValue = computed(() => props.form.accountValue * props.form.tip / 100);
+const totalValue = computed(() => !props.form.accountValue ? 0 : props.form.accountValue + tipValue.value);
+const perPersonValue = computed(() => totalValue.value / props.form.people);
 const valueInBRL = computed(() => perPersonValue.value * exchangeRate.value);
 
 async function updateExchangeRate() {
-  if (!props.selectedCoin.value) return;
+  if (!props.form.selectedCoin.value) return;
 
   try {
     isLoading.value = true;
-    const quotation = new Quotation(props.selectedCoin.value, BRL.value);
+    const quotation = new Quotation(props.form.selectedCoin.value, BRL.value);
 
     exchangeRate.value = await quotation.getQuotationFromApi();
   } catch (error) {
@@ -56,7 +44,7 @@ onMounted(async () => {
   await updateExchangeRate();
 });
 
-watch(() => props.selectedCoin, async () => {
+watch(() => props.form.selectedCoin, async () => {
   messageError.value = '';
   await updateExchangeRate();
 });
@@ -67,28 +55,28 @@ watch(() => props.selectedCoin, async () => {
     <div>
       <span class="container__label">Conta:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ selectedCoin?.signal }}</span>
-        <span class="default-value">{{ accountValue }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="default-value">{{ form.accountValue }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">Gorjeta:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
         <span class="default-value">{{ tipValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">Total:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
         <span class="default-value">{{ totalValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">por Pessoa:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
         <span class="default-value">{{ perPersonValue.toFixed(2) }}</span>
       </div>
     </div>
