@@ -1,14 +1,15 @@
+import { coins } from '../scripts/coins';
+
 export default class QuotationClient {
-  currentCurrency: string;
   quotation: string;
 
-  constructor(currentCurrency: string, quotation: string) {
-    this.currentCurrency = currentCurrency;
+  constructor(quotation: string) {
     this.quotation = quotation;
   }
   
-  async getQuotationFromApi(): Promise<number> {
-    const response = await fetch(`https://economia.awesomeapi.com.br/json/last/${this.currentCurrency}-${this.quotation}`, {
+  async getQuotationsFromApi(): Promise<object> {
+    const urlPairs = coins.map(coin => `${coin.value}-${this.quotation}`).join(',');
+    const response = await fetch(`https://economia.awesomeapi.com.br/json/last/${urlPairs}`, {
       method: 'GET',
       headers: {
         'Authorization': `x-api-key ${import.meta.env.VITE_AWESOME_API_KEY}`,
@@ -16,9 +17,6 @@ export default class QuotationClient {
     });
 
     if (!response.ok) throw new Error(`Erro ao buscar cotacao na API da Awesome: ${response.statusText}`);
-    const result = await response.json();
-
-    const key = `${this.currentCurrency}${this.quotation}`;
-    return result[key].ask;
+    return response.json();
   }
 }

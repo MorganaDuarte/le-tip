@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue';
-import Quotation from '../clients/QuotationClient';
+import { ref, computed, watch } from 'vue';
 import { BRL } from '../scripts/coins';
 import Calculator from '../scripts/Calculator';
 
@@ -13,40 +12,26 @@ const props = defineProps({
   isMobile: {
     type: Boolean,
     required: true
+  },
+  quotations: {
+    type: Object,
+    required: true
   }
 });
 
-const exchangeRate = ref(1);
 const isLoading = ref(false);
 const messageError = ref('');
-
-async function updateExchangeRate() {
-  if (!props.form.selectedCoin.value) return;
-
-  try {
-    isLoading.value = true;
-    const quotation = new Quotation(props.form.selectedCoin.value, BRL.value);
-
-    exchangeRate.value = await quotation.getQuotationFromApi();
-  } catch (error) {
-    console.error('Erro ao obter cotação:', error);
-    messageError.value = 'Erro ao obter cotação';
-  } finally {
-    isLoading.value = false;
-  }
-}
+let key = `${props.form.selectedCoin.value}${BRL.value}`;
+const exchangeRate = ref(props.quotations[key].ask);
 
 const calculator = computed(() => {
   return new Calculator(props.form.accountValue, props.form.tip, props.form.people, exchangeRate.value);
 })
 
-onMounted(async () => {
-  await updateExchangeRate();
-});
-
-watch(() => props.form.selectedCoin, async () => {
+watch(() => props.form.selectedCoin, ()  => {
+  key = `${props.form.selectedCoin.value}${BRL.value}`;
+  exchangeRate.value = props.quotations[key].ask;
   messageError.value = '';
-  await updateExchangeRate();
 });
 </script>
 
