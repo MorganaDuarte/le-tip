@@ -15,9 +15,7 @@ const form = ref({
 const isMobile = ref(window.innerWidth <= 768);
 const showForm = ref(true);
 const showSummary = ref(true);
-if (isMobile.value) {
-  showSummary.value = false;
-}
+if (isMobile.value) showSummary.value = false;
 
 const updateViewWhenMobile = (value: boolean) => {
   showSummary.value = value;

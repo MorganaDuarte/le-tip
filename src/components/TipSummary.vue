@@ -55,28 +55,28 @@ watch(() => props.form.selectedCoin, async () => {
     <div>
       <span class="container__label">Conta:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
         <span class="default-value">{{ form.accountValue }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">Gorjeta:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
         <span class="default-value">{{ tipValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">Total:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
         <span class="default-value">{{ totalValue.toFixed(2) }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">por Pessoa:</span>
       <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
         <span class="default-value">{{ perPersonValue.toFixed(2) }}</span>
       </div>
     </div>

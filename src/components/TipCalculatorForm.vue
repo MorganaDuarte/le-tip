@@ -19,7 +19,7 @@ const form = defineModel('form', {
   <div class="container">
     <div class="currency-selector">
       <button v-for="coin in coins" :key="coin.value"
-        :class="['currency-selector__button', { 'currency-selector__button--active': form.selectedCoin?.value === coin.value }]" @click="emit('update:selectedCoin', coin)">
+        :class="['currency-selector__button', { 'currency-selector__button--active': form.selectedCoin.value === coin.value }]" @click="form.selectedCoin = coin">
       {{ coin.label }}
       </button>
     </div>
@@ -27,7 +27,7 @@ const form = defineModel('form', {
     <div class="container__internal">
       <h3 class="container__label">Valor</h3>
       <div class="container__field">
-        <span class="currency-symbol">{{ form.selectedCoin?.signal }}</span>
+        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
         <input type="number" v-model.number="form.accountValue" min="0" class="container__input" placeholder="0" />
       </div>
     </div>
