@@ -24,7 +24,7 @@ const people = ref(2);
       </button>
     </div>
     
-    <div class="container">
+    <div class="container__internal">
       <h3 class="container__label">Valor</h3>
       <div class="container__field">
         <span class="currency-symbol">{{ selectedCoin?.signal }}</span>
@@ -32,7 +32,7 @@ const people = ref(2);
       </div>
     </div>
 
-    <div class="container">
+    <div class="container__internal">
       <div class="tip-slider__header">
         <h3 class="tip-slider__label">Gorjeta</h3>
         <span class="tip-slider__value">{{ tip }}%</span>
@@ -64,3 +64,7 @@ const people = ref(2);
     </div>
   </div>
 </template>
+
+<style scoped>
+
+</style>

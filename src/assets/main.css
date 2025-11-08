@@ -48,6 +48,15 @@
  max-width: 400px;
 }
 
+.container__internal {
+ background-color: white;
+ border-radius: 20px;
+ padding: 20px;
+ margin: 20px 0;
+ width: 100%;
+ max-width: 400px;
+}
+
 .container__label {
  font-size: 18px;
  font-weight: 500;
