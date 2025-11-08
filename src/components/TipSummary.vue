@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue';
 import { BRL } from '../scripts/coins';
 import Calculator from '../scripts/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
-import PDFClient from '@/clients/PDFClient';
+import PDF from '@/scripts/PDF';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
@@ -51,8 +51,8 @@ watch(() => props.form.selectedCoin, ()  => {
 });
 
 const generatePDF = () => {
-  const pdfClient = new PDFClient(props.form.selectedCoin, props.form.accountValue, props.form.tip, props.form.people, totalValue.value, perPersonValue.value, valueInBRL.value, tipValue.value);
-  pdfClient.generatePDF();
+  const pdf = new PDF(props.form.selectedCoin, props.form.accountValue, props.form.tip, props.form.people, totalValue.value, perPersonValue.value, valueInBRL.value, tipValue.value);
+  pdf.generatePDF();
 }
 </script>
 
