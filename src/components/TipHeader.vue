@@ -2,7 +2,7 @@
   <div class="header-section">
     <div class="header-banner">
       <h1 class="header-banner__title">Le/Tip</h1>
-      <h3 class="header-banner__subtitle">Calculadora de gorjetas inteligente</h3>
+      <h3 class="header-banner__subtitle">Calculadora de gorjetas</h3>
     </div>
   </div>
 </template>

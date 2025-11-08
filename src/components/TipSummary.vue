@@ -52,6 +52,9 @@ watch(() => props.form.selectedCoin, ()  => {
 
 <template>
 	<div class="container">
+    <div class="currency-quotation">
+      <span>{{ `${form.selectedCoin.signal} ${form.selectedCoin.value} = ${BRL.signal}${MathHelpers.formatNumberByCurrency(exchangeRate, BRL.locale)}` }}</span>
+    </div>
     <div>
       <span class="container__label">Conta:</span>
       <div class="results-section">

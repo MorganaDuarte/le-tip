@@ -37,7 +37,7 @@ export default class Calculator {
   }
 
   calculateValueInBRL(): number {
-    const calculateValueInBRL = this.calculatePerPersonValue() * this.exchangeRate;
+    const calculateValueInBRL = this.calculatePerPersonValue() * MathHelpers.toRound(Number(this.exchangeRate), 2);
     return MathHelpers.toRound(calculateValueInBRL, 2);
   }
     

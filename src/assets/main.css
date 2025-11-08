@@ -39,6 +39,12 @@
  color: white;
 }
 
+.currency-quotation {
+  text-align: end;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
 .container {
  background-color: #f9f9f9;
  border-radius: 20px;
