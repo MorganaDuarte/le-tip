@@ -3,6 +3,7 @@ import { ref, computed, watch } from 'vue';
 import { BRL } from '../scripts/coins';
 import Calculator from '../scripts/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
+import PDFClient from '@/clients/PDFClient';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
@@ -48,6 +49,11 @@ watch(() => props.form.selectedCoin, ()  => {
   exchangeRate.value = props.quotations[key].ask;
   locale.value = props.form.selectedCoin.locale;
 });
+
+const generatePDF = () => {
+  const pdfClient = new PDFClient(props.form.selectedCoin, props.form.accountValue, props.form.tip, props.form.people, totalValue.value, perPersonValue.value, valueInBRL.value, tipValue.value);
+  pdfClient.generatePDF();
+}
 </script>
 
 <template>
@@ -90,8 +96,27 @@ watch(() => props.form.selectedCoin, ()  => {
         <span class="default-value">{{ valueInBRL }}</span>
       </div>
     </div>
+    <div class="button-container">
+      <button type="button" class="button__pdf" @click="generatePDF" :disabled="!form.accountValue">Gerar PDF</button>
+    </div>
     <div class="button-container" v-if="isMobile">
       <button type="button" class="button" @click="emit('update:showSummary', false)">&lt;</button>
     </div>
   </div>
 </template>
+
+<style scoped>
+.button__pdf {
+  background-color: #96CE00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.button__pdf:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+</style>

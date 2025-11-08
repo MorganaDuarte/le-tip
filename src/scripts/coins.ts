@@ -1,4 +1,4 @@
-type Coin = {
+export type Coin = {
   value: string;
   label: string;
   signal: string;
