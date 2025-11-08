@@ -63,21 +63,21 @@ watch(() => props.form.selectedCoin, async () => {
       <span class="container__label">Gorjeta:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ calculator.calculateTipValue().toFixed(2) }}</span>
+        <span class="default-value">{{ calculator.calculateTipValue() }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">Total:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ calculator.calculateTotalValue().toFixed(2) }}</span>
+        <span class="default-value">{{ calculator.calculateTotalValue() }}</span>
       </div>
     </div>
     <div>
       <span class="container__label">por Pessoa:</span>
       <div class="results-section">
         <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ calculator.calculatePerPersonValue().toFixed(2) }}</span>
+        <span class="default-value">{{ calculator.calculatePerPersonValue() }}</span>
       </div>
     </div>
     <div>
@@ -85,7 +85,7 @@ watch(() => props.form.selectedCoin, async () => {
       <p v-if="isLoading">Carregando...</p>
       <div v-else class="results-section">
         <span class="currency-symbol">{{ BRL.signal }}</span>
-        <span class="default-value">{{ calculator.calculateValueInBRL().toFixed(2) }}</span>
+        <span class="default-value">{{ calculator.calculateValueInBRL() }}</span>
       </div>
     </div>
     <div v-if="messageError">

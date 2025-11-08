@@ -1,3 +1,5 @@
+import MathHelpers from "./MathHelpers";
+
 export default class Calculator {
   accountValue: number;
   tip: number;
@@ -20,19 +22,23 @@ export default class Calculator {
   }
   
   calculateTipValue(): number {
-    return this.accountValue * this.tip / 100;
+    const tipValue = this.accountValue * this.tip / 100;
+    return MathHelpers.toRound(tipValue, 2);
   }
 
   calculateTotalValue(): number {
-    return this.accountValue + this.calculateTipValue();
+    const totalValue = this.accountValue + this.calculateTipValue();
+    return MathHelpers.toRound(totalValue, 2);
   }
 
   calculatePerPersonValue(): number {
-    return this.calculateTotalValue() / this.people;
+    const perPersonValue = this.calculateTotalValue() / this.people;
+    return MathHelpers.toRound(perPersonValue, 2);
   }
 
   calculateValueInBRL(): number {
-    return this.calculatePerPersonValue() * this.exchangeRate;
+    const calculateValueInBRL = this.calculatePerPersonValue() * this.exchangeRate;
+    return MathHelpers.toRound(calculateValueInBRL, 2);
   }
     
 }
