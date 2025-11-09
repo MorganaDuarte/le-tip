@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { coins } from '../scripts/coins';
 import ButtonRound from './ButtonRound.vue';
+import CalculatorSlider from './CalculatorSlider.vue';
 
 const emit = defineEmits(['update:showSummary']);
 defineProps({
@@ -34,36 +35,10 @@ const form = defineModel('form', {
     </div>
 
     <div class="container__internal">
-      <div class="tip-slider__header">
-        <h3 class="tip-slider__label">Gorjeta</h3>
-        <span class="tip-slider__value">{{ form.tip }}%</span>
-      </div>
-
-      <input type="range" min="10" max="20" v-model="form.tip" class="tip-slider__input" />
-
-      <div class="tip-slider__limits">
-        <span>10</span>
-        <span>20</span>
-      </div>
-
+      <CalculatorSlider title="Gorjeta" min="10" max="20" v-model:value="form.tip" unit="%" />
       <hr />
-
-      <div class="tip-slider__header">
-        <h3 class="tip-slider__label">Pessoas</h3>
-        <span class="tip-slider__value">{{ form.people }}</span>
-      </div>
-
-      <input type="range" min="2" max="16" v-model="form.people" class="tip-slider__input" />
-
-      <div class="tip-slider__limits">
-        <span>2</span>
-        <span>16</span>
-      </div>
+      <CalculatorSlider title="Pessoas" min="2" max="16" v-model:value="form.people" />
     </div>
     <ButtonRound v-if="isMobile" @click="emit('update:showSummary', true)">></ButtonRound> 
   </div>
 </template>
-
-<style scoped>
-
-</style>
