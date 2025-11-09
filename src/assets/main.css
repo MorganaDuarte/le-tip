@@ -39,6 +39,12 @@
  color: white;
 }
 
+.currency-quotation {
+  text-align: end;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
 .container {
  background-color: #f9f9f9;
  border-radius: 20px;
@@ -86,4 +92,20 @@
 .container__input::-webkit-outer-spin-button {
  -webkit-appearance: none;
  margin: 0;
+}
+
+.error-container {
+  text-align: center;
+  padding: 2rem;
+  color: #b00020;
+}
+
+.error-container__button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #b00020;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }

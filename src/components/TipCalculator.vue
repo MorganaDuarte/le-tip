@@ -49,7 +49,11 @@ onMounted(async () => {
 
 <template>
   <TipHeader />
-  <TipLoading  v-if="isLoading" />
+  <TipLoading v-if="isLoading" />
+  <div v-else-if="messageError" class="error-container">
+    <p>{{ messageError }}</p>
+    <button class="error-container__button" @click="getQuotations">Tentar novamente</button>
+  </div>
   <main class="main-content" v-else>
     <TipCalculatorForm 
       v-show="showForm"

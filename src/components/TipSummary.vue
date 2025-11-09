@@ -88,11 +88,3 @@ const generatePDF = () => {
     <ButtonRound v-if="isMobile" @click="emit('update:showSummary', false)">&lt;</ButtonRound> 
   </div>
 </template>
-
-<style scoped>
-.currency-quotation {
-  text-align: end;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-</style>
