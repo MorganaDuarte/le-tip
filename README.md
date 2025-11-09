@@ -1,27 +1,22 @@
-# le-tip
+# Le Tip
 
-This template should help get you started developing with Vue 3 in Vite.
+Le Tip is a modern and intuitive tip calculator application built with Vue.js. It helps users quickly and easily calculate the appropriate tip and split the bill among a group of people. The application also provides currency conversion, allowing users to see the values in different currencies based on the latest exchange rates.
 
-## Recommended IDE Setup
+## Features
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Tip Calculation:** Calculate the tip amount based on a percentage of the total bill.
+- **Bill Splitting:** Split the total bill, including the tip, among multiple people.
+- **Currency Conversion:** View the calculated amounts in different currencies.
+- **PDF Summary:** Generate a PDF summary of the bill and tip calculation.
+- **Responsive Design:** A clean and user-friendly interface that works on both desktop and mobile devices.
 
-## Recommended Browser Setup
+## Technologies Used
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Vue.js
+- Vite
+- TypeScript
+- pdfmake for PDF generation
+- Awesome API for currency quotations
 
 ## Project Setup
 
@@ -35,14 +30,8 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Test
 
 ```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
+npm test
 ```
