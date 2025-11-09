@@ -1,6 +1,7 @@
 export default class MathHelpers {
   static toRound(number: number, precision: number): number {
-    return Number(number.toFixed(precision));
+    const factor = Math.pow(10, precision);
+    return Math.round(number * factor) / factor; 
   }
 
   static formatNumberByCurrency(value: number, locale: string): string {
