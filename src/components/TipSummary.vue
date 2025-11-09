@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue';
 import { BRL } from '../domains/coins';
 import Calculator from '../domains/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
-import GeneratePDF from '@/scripts/GeneratePDF';
+import GeneratePDF from '../services/GeneratePDF';
 import SummaryItem from './SummaryItem.vue';
 import IconPdf from './IconPdf.vue';
 import RoundButton from './RoundButton.vue';
