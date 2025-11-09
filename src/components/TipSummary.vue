@@ -59,7 +59,8 @@ const generatePDF = () => {
     totalValue.value, 
     perPersonValue.value, 
     valueInBRL.value, 
-    tipValue.value
+    tipValue.value,
+    exchangeRate.value
   );
   
   pdf.generatePDF();

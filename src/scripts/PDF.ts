@@ -15,8 +15,9 @@ export default class PDF {
   perPersonValue: string
   valueInBRL: string
   tipValue: string
+  exchangeRate: number
 
-  constructor(selectedCoin: Coin, accountValue: number, tip: number, people: number, totalValue: string, perPersonValue: string, valueInBRL: string, tipValue: string) {
+  constructor(selectedCoin: Coin, accountValue: number, tip: number, people: number, totalValue: string, perPersonValue: string, valueInBRL: string, tipValue: string, exchangeRate: number) {
     this.selectedCoin = selectedCoin;
     this.accountValue = accountValue;
     this.tip = tip;
@@ -25,6 +26,7 @@ export default class PDF {
     this.perPersonValue = perPersonValue;
     this.valueInBRL = valueInBRL;
     this.tipValue = tipValue;
+    this.exchangeRate = exchangeRate;
   }
 
   generatePDF = () => {
@@ -38,6 +40,7 @@ export default class PDF {
         { text: `Valor da gorjeta: ${this.tipValue}` },
         { text: `Total: ${this.totalValue}` },
         { text: `Por pessoa: ${this.perPersonValue}` },
+        { text: `Taxa de câmbio: ${this.exchangeRate}` },
         { text: `Valor em BRL: ${this.valueInBRL}` },
       ],
       styles: {
