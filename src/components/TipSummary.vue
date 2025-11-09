@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue';
 import { BRL } from '../scripts/coins';
 import Calculator from '../scripts/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
-import PDF from '@/scripts/PDF';
+import GeneratePDF from '@/scripts/GeneratePDF';
 import SummaryItem from './SummaryItem.vue';
 import IconPdf from './IconPdf.vue';
 import RoundButton from './RoundButton.vue';
@@ -52,7 +52,7 @@ watch(() => props.form.selectedCoin, ()  => {
 });
 
 const generatePDF = () => {
-  const pdf = new PDF(
+  const pdf = new GeneratePDF(
     props.form.selectedCoin, 
     props.form.accountValue, 
     props.form.tip, props.form.people, 

@@ -6,7 +6,7 @@ import type { Coin } from "./coins";
 
 pdfMake.vfs = pdfFonts.vfs;
 
-export default class PDF {
+export default class GeneratePDF {
   selectedCoin: Coin
   accountValue: number
   tip: number
