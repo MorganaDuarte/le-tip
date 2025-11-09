@@ -2,6 +2,8 @@
 
 Le Tip is a modern and intuitive tip calculator application built with Vue.js. It helps users quickly and easily calculate the appropriate tip and split the bill among a group of people. The application also provides currency conversion, allowing users to see the values in different currencies based on the latest exchange rates.
 
+You can view the application at: https://le-tip.vercel.app/
+
 ## Features
 
 - **Tip Calculation:** Calculate the tip amount based on a percentage of the total bill.
