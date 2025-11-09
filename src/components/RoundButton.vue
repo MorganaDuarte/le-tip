@@ -1,14 +1,7 @@
 <script setup lang="ts">
 defineProps({
-  onClick: {
-    type: Function,
-    required: true
-  },
-  disabled: {
-    type: Boolean,
-    required: false,
-    default: false
-  }
+  onClick: { type: Function, required: true },
+  disabled: { type: Boolean, required: false, default: false }
 })
 </script>
 
@@ -42,7 +35,6 @@ defineProps({
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   transition: background-color 0.2s ease, transform 0.2s ease;
 }
-
 
 .button-round:disabled {
   background-color: #ccc;

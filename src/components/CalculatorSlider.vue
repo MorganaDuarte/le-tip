@@ -1,28 +1,12 @@
 <script setup lang="ts">
 defineProps({
-  title: {
-    type: String,
-    required: false
-  },
-  min: {
-    type: String,
-    required: false
-  },
-  max: {
-    type: String,
-    required: false
-  },
-  unit: {
-    type: String,
-    required: false,
-    default: ''
-  }
+  title: { type: String, required: false },
+  min: { type: String, required: false },
+  max: { type: String, required: false },
+  unit: { type: String, required: false, default: '' }
 })
 
-const value = defineModel('value', {
-  type: Number,
-  required: true
-});
+const value = defineModel('value', { type: Number, required: true });
 </script>
 
 <template>

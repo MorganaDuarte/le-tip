@@ -6,22 +6,13 @@ import MathHelpers from '../scripts/MathHelpers';
 import PDF from '@/scripts/PDF';
 import SummaryItem from './SummaryItem.vue';
 import IconPdf from './IconPdf.vue';
-import ButtonRound from './ButtonRound.vue';
+import RoundButton from './RoundButton.vue';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
-  form: {
-    type: Object,
-    required: true
-  },
-  isMobile: {
-    type: Boolean,
-    required: true
-  },
-  quotations: {
-    type: Object,
-    required: true
-  }
+  form: { type: Object, required: true },
+  isMobile: { type: Boolean, required: true },
+  quotations: { type: Object, required: true  }
 });
 
 const createKey = (selectedCoin: string, quotation: string) => {
@@ -32,6 +23,9 @@ let key = createKey(props.form.selectedCoin.value, BRL.value);
 const exchangeRate = ref(props.quotations[key].ask);
 const locale = ref(props.form.selectedCoin.locale);
 
+const currencyQuotation = computed(() => {
+  return `${props.form.selectedCoin.signal} ${props.form.selectedCoin.value} = ${BRL.signal}${MathHelpers.formatNumberByCurrency(exchangeRate.value, BRL.locale)}`
+});
 const calculator = computed(() => {
   return new Calculator(props.form.accountValue, props.form.tip, props.form.people, exchangeRate.value);
 });
@@ -75,16 +69,16 @@ const generatePDF = () => {
 <template>
 	<div class="container">
     <div class="currency-quotation">
-      <span>{{ `${form.selectedCoin.signal} ${form.selectedCoin.value} = ${BRL.signal}${MathHelpers.formatNumberByCurrency(exchangeRate, BRL.locale)}` }}</span>
+      <span>{{ currencyQuotation }}</span>
     </div>
     <SummaryItem title="Conta" :signal="form.selectedCoin.signal" :value="accountValue" />
     <SummaryItem title="Gorjeta" :signal="form.selectedCoin.signal" :value="tipValue" />
     <SummaryItem title="Total" :signal="form.selectedCoin.signal" :value="totalValue" />
     <SummaryItem title="por Pessoa" :signal="form.selectedCoin.signal" :value="perPersonValue" />
     <SummaryItem :title="`em ${BRL.label}`" :signal="BRL.signal" :value="valueInBRL" />
-    <ButtonRound @click="generatePDF" :disabled="!form.accountValue">
+    <RoundButton @click="generatePDF" :disabled="!form.accountValue">
       <IconPdf />
-    </ButtonRound>
-    <ButtonRound v-if="isMobile" @click="emit('update:showSummary', false)">&lt;</ButtonRound> 
+    </RoundButton>
+    <RoundButton v-if="isMobile" @click="emit('update:showSummary', false)">&lt;</RoundButton> 
   </div>
 </template>

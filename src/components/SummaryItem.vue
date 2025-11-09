@@ -1,17 +1,8 @@
 <script setup lang="ts">
 defineProps({
-  title: {
-    type: String,
-    required: false
-  },
-  signal: {
-    type: String,
-    required: false
-  },
-  value: {
-    type: String,
-    required: false
-  }
+  title: { type: String, required: false },
+  signal: { type: String, required: false },
+  value: { type: String, required: false  }
 })
 </script>
 
@@ -19,7 +10,7 @@ defineProps({
   <div>
     <span class="summary-item__label">{{ title }}</span>
       <div class="summary-item__section">
-        <span class="currency-symbol">{{ signal }}</span>
+        <span class="currency-signal">{{ signal }}</span>
         <span class="summary-item__value">{{ value }}</span>
       </div>
   </div>

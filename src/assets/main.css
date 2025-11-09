@@ -5,38 +5,11 @@
   align-items: flex-start;
 }
 
-.currency-symbol {
+.currency-signal {
  font-size: 24px;
  color: #8F9BB3;
  margin-right: 10px;
  font-weight: 500;
-}
-
-.currency-selector {
- display: flex;
- background-color: white;
- border-radius: 50px;
- padding: 4px;
- width: fit-content;
- box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
- border: 1px solid #f0f0f0;
-}
-
-.currency-selector__button {
- border: none;
- background: none;
- padding: 10px 25px;
- border-radius: 50px;
- font-size: 16px;
- font-weight: 500;
- color: #8F9BB3;
- cursor: pointer;
- transition: all 0.3s ease;
-}
-
-.currency-selector__button--active {
- background-color: #96CE00;
- color: white;
 }
 
 .currency-quotation {

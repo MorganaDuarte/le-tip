@@ -14,10 +14,13 @@ const form = ref({
   tip: 10,
   people: 2
 });
-
 const isMobile = ref(window.innerWidth <= 768);
 const showForm = ref(true);
 const showSummary = ref(true);
+const quotations = ref({})
+const isLoading = ref(true);
+const messageError = ref('');
+
 if (isMobile.value) showSummary.value = false;
 
 const setActiveSectionWhenMobile = (value: boolean) => {
@@ -25,11 +28,7 @@ const setActiveSectionWhenMobile = (value: boolean) => {
   showForm.value = !value;
 };
 
-const quotations = ref({})
-const isLoading = ref(true);
-const messageError = ref('');
-
-async function getQuotations() {
+const getQuotations = async () => {
   try {
     const quotation = new Quotation(BRL.value);
 
@@ -50,16 +49,19 @@ onMounted(async () => {
 <template>
   <TipHeader />
   <TipLoading v-if="isLoading" />
+  
   <div v-else-if="messageError" class="error-container">
     <p>{{ messageError }}</p>
     <button class="error-container__button" @click="getQuotations">Tentar novamente</button>
   </div>
+  
   <main class="main-content" v-else>
     <TipCalculatorForm 
       v-show="showForm"
       :isMobile="isMobile"
       v-model:form="form"
       @update:showSummary="setActiveSectionWhenMobile($event)" />
+  
     <TipSummary 
       v-show="showSummary"
       :isMobile="isMobile"
