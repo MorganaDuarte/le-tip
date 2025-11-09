@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { coins } from '../scripts/coins';
+import ButtonRound from './ButtonRound.vue';
 
-const emit = defineEmits(['update:selectedCoin', 'update:accountValue', 'update:tip', 'update:people', 'update:showSummary']);
+const emit = defineEmits(['update:showSummary']);
 defineProps({
   isMobile: {
     type: Boolean,
@@ -59,9 +60,7 @@ const form = defineModel('form', {
         <span>16</span>
       </div>
     </div>
-    <div class="button-container" v-if="isMobile">
-      <button type="button" class="button" @click="emit('update:showSummary', true)">></button>
-    </div>
+    <ButtonRound v-if="isMobile" @click="emit('update:showSummary', true)">></ButtonRound> 
   </div>
 </template>
 

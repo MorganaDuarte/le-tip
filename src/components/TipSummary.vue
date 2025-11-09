@@ -5,6 +5,8 @@ import Calculator from '../scripts/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
 import PDF from '@/scripts/PDF';
 import SummaryItem from './SummaryItem.vue';
+import IconPdf from './IconPdf.vue';
+import ButtonRound from './ButtonRound.vue';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
@@ -80,12 +82,10 @@ const generatePDF = () => {
     <SummaryItem title="Total" :signal="form.selectedCoin.signal" :value="totalValue" />
     <SummaryItem title="por Pessoa" :signal="form.selectedCoin.signal" :value="perPersonValue" />
     <SummaryItem :title="`em ${BRL.label}`" :signal="BRL.signal" :value="valueInBRL" />
-    <div class="button-container">
-      <button type="button" class="button__pdf" @click="generatePDF" :disabled="!form.accountValue">Gerar PDF</button>
-    </div>
-    <div class="button-container" v-if="isMobile">
-      <button type="button" class="button" @click="emit('update:showSummary', false)">&lt;</button>
-    </div>
+    <ButtonRound @click="generatePDF" :disabled="!form.accountValue">
+      <IconPdf />
+    </ButtonRound>
+    <ButtonRound v-if="isMobile" @click="emit('update:showSummary', false)">&lt;</ButtonRound> 
   </div>
 </template>
 
@@ -94,19 +94,5 @@ const generatePDF = () => {
   text-align: end;
   font-size: 0.9rem;
   color: #6b7280;
-}
-
-.button__pdf {
-  background-color: #96CE00;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.button__pdf:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }
 </style>
