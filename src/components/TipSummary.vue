@@ -4,6 +4,7 @@ import { BRL } from '../scripts/coins';
 import Calculator from '../scripts/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
 import PDF from '@/scripts/PDF';
+import SummaryItem from './SummaryItem.vue';
 
 const emit = defineEmits(['update:showSummary']);
 const props = defineProps({
@@ -21,7 +22,11 @@ const props = defineProps({
   }
 });
 
-let key = `${props.form.selectedCoin.value}${BRL.value}`;
+const createKey = (selectedCoin: string, quotation: string) => {
+ return `${selectedCoin}${quotation}`
+}
+
+let key = createKey(props.form.selectedCoin.value, BRL.value);
 const exchangeRate = ref(props.quotations[key].ask);
 const locale = ref(props.form.selectedCoin.locale);
 
@@ -45,13 +50,22 @@ const valueInBRL = computed(() => {
 });
 
 watch(() => props.form.selectedCoin, ()  => {
-  key = `${props.form.selectedCoin.value}${BRL.value}`;
+  key = createKey(props.form.selectedCoin.value, BRL.value);
   exchangeRate.value = props.quotations[key].ask;
   locale.value = props.form.selectedCoin.locale;
 });
 
 const generatePDF = () => {
-  const pdf = new PDF(props.form.selectedCoin, props.form.accountValue, props.form.tip, props.form.people, totalValue.value, perPersonValue.value, valueInBRL.value, tipValue.value);
+  const pdf = new PDF(
+    props.form.selectedCoin, 
+    props.form.accountValue, 
+    props.form.tip, props.form.people, 
+    totalValue.value, 
+    perPersonValue.value, 
+    valueInBRL.value, 
+    tipValue.value
+  );
+  
   pdf.generatePDF();
 }
 </script>
@@ -61,41 +75,11 @@ const generatePDF = () => {
     <div class="currency-quotation">
       <span>{{ `${form.selectedCoin.signal} ${form.selectedCoin.value} = ${BRL.signal}${MathHelpers.formatNumberByCurrency(exchangeRate, BRL.locale)}` }}</span>
     </div>
-    <div>
-      <span class="container__label">Conta:</span>
-      <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ accountValue }}</span>
-      </div>
-    </div>
-    <div>
-      <span class="container__label">Gorjeta:</span>
-      <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ tipValue }}</span>
-      </div>
-    </div>
-    <div>
-      <span class="container__label">Total:</span>
-      <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ totalValue }}</span>
-      </div>
-    </div>
-    <div>
-      <span class="container__label">por Pessoa:</span>
-      <div class="results-section">
-        <span class="currency-symbol">{{ form.selectedCoin.signal }}</span>
-        <span class="default-value">{{ perPersonValue }}</span>
-      </div>
-    </div>
-    <div>
-      <span class="container__label">em {{BRL.label }}:</span>
-      <div class="results-section">
-        <span class="currency-symbol">{{ BRL.signal }}</span>
-        <span class="default-value">{{ valueInBRL }}</span>
-      </div>
-    </div>
+    <SummaryItem title="Conta" :signal="form.selectedCoin.signal" :value="accountValue" />
+    <SummaryItem title="Gorjeta" :signal="form.selectedCoin.signal" :value="tipValue" />
+    <SummaryItem title="Total" :signal="form.selectedCoin.signal" :value="totalValue" />
+    <SummaryItem title="por Pessoa" :signal="form.selectedCoin.signal" :value="perPersonValue" />
+    <SummaryItem :title="`em ${BRL.label}`" :signal="BRL.signal" :value="valueInBRL" />
     <div class="button-container">
       <button type="button" class="button__pdf" @click="generatePDF" :disabled="!form.accountValue">Gerar PDF</button>
     </div>
@@ -106,6 +90,12 @@ const generatePDF = () => {
 </template>
 
 <style scoped>
+.currency-quotation {
+  text-align: end;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
 .button__pdf {
   background-color: #96CE00;
   color: white;

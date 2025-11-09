@@ -39,12 +39,6 @@
  color: white;
 }
 
-.currency-quotation {
-  text-align: end;
-  font-size: 0.9rem;
-  color: #6b7280;
-}
-
 .container {
  background-color: #f9f9f9;
  border-radius: 20px;
@@ -152,21 +146,6 @@
   justify-content: space-between;
   font-size: 0.9rem;
   color: #6b6b6b;
-}
-
-.results-section {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 4px;
-  margin-bottom: 16px;
-}
-
-.default-value {
-  font-size: 1.25rem;
-  font-weight: 400;
-  color: #333;
-  margin: 0;
 }
 
 .button-container {
