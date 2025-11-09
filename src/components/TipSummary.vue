@@ -2,7 +2,7 @@
 import { ref, computed, watch } from 'vue';
 import { BRL } from '../domains/coins';
 import Calculator from '../domains/Calculator';
-import MathHelpers from '../scripts/MathHelpers';
+import MathHelpers from '../helpers/MathHelpers';
 import GeneratePDF from '../services/GeneratePDF';
 import SummaryItem from './SummaryItem.vue';
 import IconPdf from './IconPdf.vue';

@@ -1,4 +1,4 @@
-import MathHelpers from "../scripts/MathHelpers";
+import MathHelpers from "../helpers/MathHelpers";
 
 export default class Calculator {
   accountValue: number;

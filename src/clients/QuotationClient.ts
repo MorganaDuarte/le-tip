@@ -1,4 +1,4 @@
-import { coins } from '../scripts/coins';
+import { coins } from '../domains/coins';
 
 export default class QuotationClient {
   quotation: string;

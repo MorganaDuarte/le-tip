@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { coins } from '../scripts/coins';
+import { coins } from '../domains/coins';
 import RoundButton from './RoundButton.vue';
 import CalculatorSlider from './CalculatorSlider.vue';
 
