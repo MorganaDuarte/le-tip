@@ -9,6 +9,13 @@ defineProps({
 });
 
 const form = defineModel('form', { type: Object, required: true });
+
+const blockInvalidKeys = (event: KeyboardEvent) => {
+  const invalidKeys = ['-', '+', 'e'];
+  if (invalidKeys.includes(event.key)) {
+    event.preventDefault();
+  }
+};
 </script>
 
 <template>
@@ -27,7 +34,14 @@ const form = defineModel('form', { type: Object, required: true });
       <h3 class="container__label">Valor</h3>
       <div class="container__field">
         <span class="currency-signal">{{ form.selectedCoin.signal }}</span>
-        <input type="number" v-model="form.accountValue" min="0" class="container__input" placeholder="0" />
+        <input
+          type="number"
+          v-model="form.accountValue"
+          min="0"
+          class="container__input"
+          placeholder="0"
+          @keydown="blockInvalidKeys"
+        />
       </div>
     </div>
 
