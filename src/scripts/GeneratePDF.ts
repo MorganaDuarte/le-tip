@@ -2,7 +2,7 @@
 import pdfMake from "pdfmake/build/pdfmake";
 import pdfFonts from "pdfmake/build/vfs_fonts";
 import type { TDocumentDefinitions } from "pdfmake/interfaces";
-import type { Coin } from "./coins";
+import type { Coin } from "../domains/coins"
 
 pdfMake.vfs = pdfFonts.vfs;
 

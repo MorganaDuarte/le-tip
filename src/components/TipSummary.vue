@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue';
-import { BRL } from '../scripts/coins';
-import Calculator from '../scripts/Calculator';
+import { BRL } from '../domains/coins';
+import Calculator from '../domains/Calculator';
 import MathHelpers from '../scripts/MathHelpers';
 import GeneratePDF from '@/scripts/GeneratePDF';
 import SummaryItem from './SummaryItem.vue';

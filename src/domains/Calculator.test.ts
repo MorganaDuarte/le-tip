@@ -1,5 +1,6 @@
 import Calculator from "./Calculator";
 
+
 describe("Calculator", () => {
   test.each([
     // conta | gorjeta | pessoas | gorjetaCalculada | total | porPessoa | valorBRL

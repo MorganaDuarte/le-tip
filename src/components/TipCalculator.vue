@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import { coins } from '../scripts/coins';
-import { BRL } from '../scripts/coins';
+import { coins } from '../domains/coins';
+import { BRL } from '../domains/coins';
 import TipHeader from './TipHeader.vue';
 import TipSummary from './TipSummary.vue';
 import TipCalculatorForm from './TipCalculatorForm.vue';
