@@ -14,7 +14,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix --cache",
     "format": "prettier --write src/",
-    "test": "jest"
+    "test": "jest --watchAll"
   },
   "dependencies": {
     "bootstrap": "^5.3.8",
