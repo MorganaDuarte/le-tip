@@ -22,23 +22,18 @@ export default class Calculator {
   }
   
   calculateTipValue(): number {
-    const tipValue = this.accountValue * this.tip / 100;
-    return MathHelpers.toRound(tipValue, 2);
+    return this.accountValue * this.tip / 100;
   }
 
   calculateTotalValue(): number {
-    const totalValue = this.accountValue + this.calculateTipValue();
-    return MathHelpers.toRound(totalValue, 2);
+    return this.accountValue + this.calculateTipValue();
   }
 
   calculatePerPersonValue(): number {
-    const perPersonValue = this.calculateTotalValue() / this.people;
-    return MathHelpers.toRound(perPersonValue, 2);
+    return this.calculateTotalValue() / this.people;
   }
 
   calculateValueInBRL(): number {
-    const calculateValueInBRL = this.calculatePerPersonValue() * MathHelpers.toRound(Number(this.exchangeRate), 2);
-    return MathHelpers.toRound(calculateValueInBRL, 2);
+    return this.calculatePerPersonValue() * MathHelpers.toRound(Number(this.exchangeRate), 2);
   }
-    
 }
