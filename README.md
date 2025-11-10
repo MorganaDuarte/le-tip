@@ -40,5 +40,5 @@ npm test
 
 ### Currency Conversion
 
-The application uses the [Awesome API] (https://docs.awesomeapi.com.br/api-de-moedas) to perform currency conversion. 
+The application uses the Awesome API to perform currency conversion. 
 To run the project locally, create a .env file in the project root and add the following environment variable VITE_AWESOME_API_KEY.
